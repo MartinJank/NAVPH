@@ -9,7 +9,7 @@ public class Tower : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private float attackSpeed;
 
-    private GameObject currentTarget;
+    public GameObject currentTarget;
 
     private float nextTimeShoot;
     // Start is called before the first frame update
@@ -38,7 +38,7 @@ public class Tower : MonoBehaviour
         }
     }
 
-    private void shoot() {
+    protected virtual void shoot() {
         Enemy enemyScript = currentTarget.GetComponent<Enemy>();
         enemyScript.takeDemage(damage);
     }
@@ -55,6 +55,5 @@ public class Tower : MonoBehaviour
                 nextTimeShoot = Time.time + attackSpeed;
             }
         }
-        shoot();
     }
 }

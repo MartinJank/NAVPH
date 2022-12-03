@@ -49,6 +49,8 @@ public class Enemy : MonoBehaviour {
                 int currentIndex = MapGenerator.pathTiles.IndexOf(targetTile);
                 targetTile = MapGenerator.pathTiles[currentIndex + 1];
             }
+        } else if (targetTile == MapGenerator.endTile) {
+            die();
         }
     }
     
