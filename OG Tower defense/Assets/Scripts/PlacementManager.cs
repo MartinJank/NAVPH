@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PlacementManager : MonoBehaviour
 {
+    public ShopManager shopManager;
+    public UIText uiText;
     public GameObject basicTowerObject;
+    private GameObject currentTowerPlacing;
 
     private GameObject dummyPlacement;
     private GameObject hoverTile;
@@ -14,8 +17,7 @@ public class PlacementManager : MonoBehaviour
     public bool isBuilding;
 
     public void Start() {
-        startBuilding();
-    }
+     }
     public Vector2 getMousePosition() {
         return cam.ScreenToWorldPoint(Input.mousePosition);
     }
@@ -48,18 +50,27 @@ public class PlacementManager : MonoBehaviour
     public void PlaceBuilding(){
          if (hoverTile != null) {
             if (!CheckTower()) {
-                GameObject newTowerObject = Instantiate(basicTowerObject);
-                newTowerObject.layer = LayerMask.NameToLayer("Tower");
-                newTowerObject.transform.position = hoverTile.transform.position;
+                if (shopManager.CanBuyTower(currentTowerPlacing) == true) {
+                    GameObject newTowerObject = Instantiate(currentTowerPlacing);
+                    newTowerObject.layer = LayerMask.NameToLayer("Tower");
+                    newTowerObject.transform.position = hoverTile.transform.position;
 
-                endBuilding();
+                    endBuilding();
+                    shopManager.BuyTower(currentTowerPlacing);
+                } else {
+                    endBuilding();
+                    uiText.isError = true;
+                    uiText.errorMessage = "Not enough money";
+                    uiText.nextTime = Time.time + 2f; 
+                }
             }
          }
     }
 
-    public void startBuilding() {
+    public void startBuilding(GameObject towerToBuild) {
         isBuilding = true;
-        dummyPlacement = Instantiate(basicTowerObject);
+        currentTowerPlacing = towerToBuild;
+        dummyPlacement = Instantiate(currentTowerPlacing);
         if (dummyPlacement.GetComponent<Tower>() != null) {
             Destroy(dummyPlacement.GetComponent<Tower>());
         }
