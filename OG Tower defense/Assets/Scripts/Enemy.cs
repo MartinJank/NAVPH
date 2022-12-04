@@ -6,11 +6,13 @@ public class Enemy : MonoBehaviour {
     public static List<GameObject> enemies;
     [SerializeField] private float enemyHealth; 
     [SerializeField] private float movementSpeed; 
-    private int killReward; // The amount of money the player gets when this enemy is killed 
+    private int killReward = 25; // The amount of money the player gets when this enemy is killed 
     private int damage; // The amount of damage the enemy does when it reaches the end 
     private GameObject targetTile; 
-
+    private GameObject term;
+    public MoneyManager moneyManager;
     private void Awake() {
+        moneyManager = GameObject.FindObjectsOfType<MoneyManager>()[0];
         Enemies.enemies.Add(gameObject);
     }
 
@@ -27,6 +29,7 @@ public class Enemy : MonoBehaviour {
     public void takeDemage(float amount) {
         enemyHealth -= amount;
         if (enemyHealth <= 0) {
+            moneyManager.AddMoney(killReward);
             die();
         }
     }
@@ -58,7 +61,5 @@ public class Enemy : MonoBehaviour {
     {
         checkPosition();
         moveEnemy();
-
-        takeDemage(0);
     }
 }

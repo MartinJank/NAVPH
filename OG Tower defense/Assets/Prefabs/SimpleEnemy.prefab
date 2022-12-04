@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: 100
   movementSpeed: 0.5
+  moneyManager: {fileID: 0}
 --- !u!61 &-244220607420232143
 BoxCollider2D:
   m_ObjectHideFlags: 0
