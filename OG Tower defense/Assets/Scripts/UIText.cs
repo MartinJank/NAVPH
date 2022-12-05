@@ -6,16 +6,18 @@ using TMPro;
 public class UIText : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI moneyText;
+    [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private TextMeshProUGUI errorText;
     public bool isError;
     public float nextTime;
     public string errorMessage;
     public MoneyManager moneyManager;
+    public MapGenerator mapGenerator;
     // Start is called before the first frame update
     private void Start()
     {
-        moneyText.text = "Money: " + moneyManager.GetPlayerCurrentMoney();
-        errorText.text = "ffff";
+        moneyText.text = "" + moneyManager.GetPlayerCurrentMoney();
+        errorText.text = "";
         isError = false;
     }
 
@@ -23,8 +25,9 @@ public class UIText : MonoBehaviour
     void Update()
     {
         if (moneyText != null) {
-            moneyText.text = "Money: " + moneyManager.GetPlayerCurrentMoney();
+            moneyText.text = "" + moneyManager.GetPlayerCurrentMoney();
         }
+        healthText.text = mapGenerator.getCastleHealth().ToString();
         if (errorText != null) {
             if (!isError && (Time.time >= nextTime)) {
                 nextTime = Mathf.Infinity;
