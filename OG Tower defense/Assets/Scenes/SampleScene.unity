@@ -1199,6 +1199,7 @@ MonoBehaviour:
   mapWidth: 10
   mapHeight: 8
   numOfCurves: 1
+  castleHealth: 10
   pathColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
   startColor: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 1}
   endColor: {r: 1, g: 0.7672589, b: 0.2588235, a: 1}
@@ -4480,10 +4481,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e871d90a824c6344ad2d10ca9ac47bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiText: {fileID: 1470596089}
   basicEnemy: {fileID: 4300398218025990476, guid: ebc55228fd99e024d8bf47a2f97b3135, type: 3}
   timeWaves: 5
   timeBeforeRoundStarts: 3
   timeVariable: 1
+  notOver: 1
   roundGoing: 0
   intermission: 0
   roundStarted: 0

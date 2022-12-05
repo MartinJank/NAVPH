@@ -8,6 +8,8 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private int mapWidth;
     [SerializeField] private int mapHeight;
     [SerializeField] private int numOfCurves;
+    [SerializeField] private int castleHealth;
+
     public static List<GameObject> mapTiles = new List<GameObject>();
     public static List<GameObject> pathTiles = new List<GameObject>();
 
@@ -27,6 +29,14 @@ public class MapGenerator : MonoBehaviour
     private void Start()
     {
         generateMap();
+    }
+
+    public int getCastleHealth() {
+        return castleHealth;
+    }
+
+    public void damageCastle(int damage) {
+        castleHealth -= damage;
     }
 
     private List<GameObject> getTopEdgeTiles()

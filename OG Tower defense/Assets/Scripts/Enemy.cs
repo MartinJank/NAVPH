@@ -7,12 +7,16 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private float enemyHealth; 
     [SerializeField] private float movementSpeed; 
     private int killReward = 25; // The amount of money the player gets when this enemy is killed 
-    private int damage; // The amount of damage the enemy does when it reaches the end 
+    private int damage = 1; // The amount of damage the enemy does when it reaches the end 
     private GameObject targetTile; 
     private GameObject term;
     public MoneyManager moneyManager;
+    public MapGenerator mapGenerator;
+    public RoundController roundController;
     private void Awake() {
         moneyManager = GameObject.FindObjectsOfType<MoneyManager>()[0];
+        mapGenerator = GameObject.FindObjectsOfType<MapGenerator>()[0];
+        roundController = GameObject.FindObjectsOfType<RoundController>()[0];
         Enemies.enemies.Add(gameObject);
     }
 
@@ -52,7 +56,11 @@ public class Enemy : MonoBehaviour {
                 int currentIndex = MapGenerator.pathTiles.IndexOf(targetTile);
                 targetTile = MapGenerator.pathTiles[currentIndex + 1];
             }
-        } else if (targetTile == MapGenerator.endTile) {
+        } else if (transform.position == MapGenerator.endTile.transform.position) {
+            mapGenerator.damageCastle(damage);
+            if (mapGenerator.getCastleHealth() <= 0) {
+                roundController.notOver = false;
+            }
             die();
         }
     }
