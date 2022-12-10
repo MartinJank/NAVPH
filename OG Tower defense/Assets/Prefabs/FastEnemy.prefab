@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8568083328341161110}
   - component: {fileID: -244220607420232143}
   m_Layer: 0
-  m_Name: SimpleEnemy
+  m_Name: FastEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.8018868, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.8, g: 0.22301994, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 100
-  movementSpeed: 0.5
+  movementSpeed: 1
   moneyManager: {fileID: 0}
   mapGenerator: {fileID: 0}
   roundController: {fileID: 0}

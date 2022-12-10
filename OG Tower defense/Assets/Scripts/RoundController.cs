@@ -6,6 +6,7 @@ public class RoundController : MonoBehaviour
 {
     public UIText uiText;
     public GameObject basicEnemy;
+    public GameObject fastEnemy;
     public float timeWaves;
     public float timeBeforeRoundStarts;
     public float timeVariable;
@@ -28,8 +29,12 @@ public class RoundController : MonoBehaviour
     }
 
     IEnumerator ISpawnEnemies() {
-        for (int i = 0; i < round;i++) {
-            GameObject newEnemy = Instantiate(basicEnemy, MapGenerator.startTile.transform.position, Quaternion.identity);
+        for (int i = 0; i < round * 3; i++) {
+            if (round > 3) {
+                GameObject newEnemy = Instantiate(fastEnemy, MapGenerator.startTile.transform.position, Quaternion.identity);
+            } else {
+                GameObject newEnemy = Instantiate(basicEnemy, MapGenerator.startTile.transform.position, Quaternion.identity);
+            }
             yield return new WaitForSeconds(1f);
         }
     }

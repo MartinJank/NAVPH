@@ -4625,6 +4625,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiText: {fileID: 1470596089}
   basicEnemy: {fileID: 4300398218025990476, guid: ebc55228fd99e024d8bf47a2f97b3135, type: 3}
+  fastEnemy: {fileID: 4300398218025990476, guid: b7b1f5e8138b8ad4799d47bd5332fce3, type: 3}
   timeWaves: 5
   timeBeforeRoundStarts: 3
   timeVariable: 1
@@ -5336,7 +5337,7 @@ GameObject:
   - component: {fileID: 1935002851}
   - component: {fileID: 1935002850}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: LevelCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
