@@ -24,7 +24,8 @@ public class MapGenerator : MonoBehaviour
     private int nextIndex;
     public Color pathColor;
     public Color startColor;
-    public Color endColor;
+    public Sprite pathSprite;
+    public Sprite castleSprite;
 
     private void Start()
     {
@@ -167,11 +168,19 @@ public class MapGenerator : MonoBehaviour
 
         foreach (GameObject obj in pathTiles)
         {
+            float pathScale = 0.391f;
+            obj.transform.localScale = new Vector3(pathScale, pathScale, pathScale);
+            obj.GetComponent<SpriteRenderer>().sprite = pathSprite;
             obj.GetComponent<SpriteRenderer>().color = pathColor;
         }
-
+        
+        startTile.GetComponent<SpriteRenderer>().sprite = pathSprite;
         startTile.GetComponent<SpriteRenderer>().color = startColor;
-        endTile.GetComponent<SpriteRenderer>().color = endColor;
+        
+        endTile.GetComponent<SpriteRenderer>().sprite = castleSprite;
+        float castleScale = 1f;
+        endTile.transform.localScale = new Vector3(castleScale, castleScale, castleScale);
+        
     }
 }
 
