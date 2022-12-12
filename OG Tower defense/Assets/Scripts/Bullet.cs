@@ -11,17 +11,19 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision) {
         if (!isColliding) {
-            isColliding = true;
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             if (enemy != null) {
+                isColliding = true;
                 enemy.takeDemage(damage);
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
         }
     }
 
     private void OnCollisionExit2D(Collision2D other) {
-        isColliding = false;
+        if (other.gameObject.GetComponent<Tower>() == null) {
+            isColliding = false;
+        }
     }
 
     private void Update()

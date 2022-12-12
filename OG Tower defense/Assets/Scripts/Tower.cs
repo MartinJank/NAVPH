@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Tower : MonoBehaviour
@@ -20,8 +21,15 @@ public class Tower : MonoBehaviour
         RangeCircle.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
     }
 
+    public void addToEnemiesInRange(GameObject enemy) {
+        enemiesInRange.Add(enemy);
+    }
+
+    public void removeEnemiesInRange() {
+        enemiesInRange.RemoveAt(0);
+    }
     private void Awake() {
-        RangeCircle.localScale = new Vector3(range/2, range/2, range/2);
+        RangeCircle.localScale = new Vector3(range, range, range);
     }
     // Start is called before the first frame update
     void Start()
@@ -34,7 +42,7 @@ public class Tower : MonoBehaviour
             if (enemiesInRange[0] == null) {
                 enemiesInRange.RemoveAt(0);
             }
-            currentTarget = enemiesInRange[0];
+            currentTarget = enemiesInRange.First();
         }
         // GameObject currentNearestEnemy = null;
         // float distance = Mathf.Infinity;
@@ -63,11 +71,6 @@ public class Tower : MonoBehaviour
     public int GetCost() { 
         return cost;
     }
-
-    // private void OnCollisionEnter2D(Collision2D collision) {
-    //     Debug.Log("Enemies added to list");
-    //     enemiesInRange.Add(collision.gameObject);
-    // }
 
     // Update is called once per frame
     void Update()
