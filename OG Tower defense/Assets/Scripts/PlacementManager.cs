@@ -54,7 +54,7 @@ public class PlacementManager : MonoBehaviour
                     GameObject newTowerObject = Instantiate(currentTowerPlacing);
                     newTowerObject.layer = LayerMask.NameToLayer("Tower");
                     newTowerObject.transform.position = hoverTile.transform.position;
-
+                    newTowerObject.GetComponent<Tower>().HideRange();
                     endBuilding();
                     shopManager.BuyTower(currentTowerPlacing);
                 } else {
@@ -68,20 +68,28 @@ public class PlacementManager : MonoBehaviour
     }
 
     public void startBuilding(GameObject towerToBuild) {
-        isBuilding = true;
-        currentTowerPlacing = towerToBuild;
-        dummyPlacement = Instantiate(currentTowerPlacing);
-        if (dummyPlacement.GetComponent<Tower>() != null) {
-            Destroy(dummyPlacement.GetComponent<Tower>());
-        }
-        if (dummyPlacement.GetComponent<BarelRotation>() != null) {
-            Destroy(dummyPlacement.GetComponent<BarelRotation>());
+        if (isBuilding == false) {
+            isBuilding = true;
+            currentTowerPlacing = towerToBuild;
+            dummyPlacement = Instantiate(currentTowerPlacing);
+            if (dummyPlacement.GetComponent<Tower>() != null) {
+                Destroy(dummyPlacement.GetComponent<Tower>());
+            }
+            if (dummyPlacement.GetComponent<BarelRotation>() != null) {
+                Destroy(dummyPlacement.GetComponent<BarelRotation>());
+            }
         }
     }
 
     public void endBuilding() {
         isBuilding = false;
-
+        hoverTile = null;
+            if (dummyPlacement.GetComponent<Tower>() != null) {
+                Destroy(dummyPlacement.GetComponent<Tower>());
+            }
+        if (dummyPlacement.GetComponent<BarelRotation>() != null) {
+            Destroy(dummyPlacement.GetComponent<BarelRotation>());
+        }
         if (dummyPlacement != null) {
             Destroy(dummyPlacement);
         }
@@ -91,12 +99,17 @@ public class PlacementManager : MonoBehaviour
         if (isBuilding == true) {
             if (dummyPlacement != null) {
                 getCurrentHoverTile();
-                if (hoverTile != null) {
+                if (hoverTile != null && !CheckTower()) {
                     dummyPlacement.transform.position = hoverTile.transform.position;
+                } else {
+                    hoverTile = null;
                 }
             }
-            if (Input.GetButtonDown("Fire1")) {
+            if (Input.GetButtonUp("Fire1") && hoverTile != null) {
                 PlaceBuilding();
+            }
+            if (Input.GetButtonDown("Fire2")) {
+                endBuilding();
             }
         }
     }

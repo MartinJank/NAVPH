@@ -10,7 +10,9 @@ public class BasicTower : Tower
 
     protected override void shoot()
     {
-        base.shoot();
+        // base.shoot();
         GameObject newBullet = Instantiate(bullet, barrel.position, pivot.rotation);
+        Bullet bulletE = newBullet.GetComponent<Bullet>();
+        bulletE.damage = damage;
     }
 }

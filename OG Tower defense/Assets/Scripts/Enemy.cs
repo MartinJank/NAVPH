@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour {
     }
 
     public void takeDemage(float amount) {
+        Debug.Log("TakeDemage");
         enemyHealth -= amount;
         if (enemyHealth <= 0) {
             moneyManager.AddMoney(killReward);

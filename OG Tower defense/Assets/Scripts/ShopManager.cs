@@ -14,13 +14,10 @@ public class ShopManager : MonoBehaviour
     public int GetTowerCost(GameObject towerPrefab)
     {
         int cost = 0;
-        if (towerPrefab == basicTowerPrefab)
-        {
-            cost = basicTowerCost;
-        }
-        else if (towerPrefab == mediumTowerPrefab)
-        {
-            cost = mediumTowerCost;
+        GameObject findTower = Instantiate(towerPrefab);
+        Tower dummyTower = findTower.GetComponent<Tower>();
+        if (dummyTower != null) {
+            cost = dummyTower.GetCost();
         }
         return cost;
     }
