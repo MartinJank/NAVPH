@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour { 
     public static List<GameObject> enemies;
     [SerializeField] private float enemyHealth; 
-    [SerializeField] private float movementSpeed; 
+    [SerializeField] public float movementSpeed; 
     private int killReward = 25; // The amount of money the player gets when this enemy is killed 
     private int damage = 1; // The amount of damage the enemy does when it reaches the end 
     private GameObject targetTile; 
@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour {
     private void Start() 
     {
         initializeEnemy();
+        tag = "Enemy";
     }
 
     private void initializeEnemy() 
@@ -55,6 +56,7 @@ public class Enemy : MonoBehaviour {
             if (distance < 0.001f) {
                 int currentIndex = MapGenerator.pathTiles.IndexOf(targetTile);
                 targetTile = MapGenerator.pathTiles[currentIndex + 1];
+                // name = targetTile.name;
             }
         } else if (transform.position == MapGenerator.endTile.transform.position) {
             mapGenerator.damageCastle(damage);

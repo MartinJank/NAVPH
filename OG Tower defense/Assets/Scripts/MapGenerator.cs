@@ -32,11 +32,13 @@ public class MapGenerator : MonoBehaviour
         generateMap();
     }
 
-    public int getCastleHealth() {
+    public int getCastleHealth()
+    {
         return castleHealth;
     }
 
-    public void damageCastle(int damage) {
+    public void damageCastle(int damage)
+    {
         castleHealth -= damage;
     }
 
@@ -123,7 +125,7 @@ public class MapGenerator : MonoBehaviour
         }
 
 
-        startTile = getTopEdgeTiles()[Random.Range(0, mapWidth)]; 
+        startTile = getTopEdgeTiles()[Random.Range(0, mapWidth)];
         endTile = getBottomEdgeTiles()[Random.Range(0, mapWidth)];
 
         List<GameObject> middleTiles = getMiddleTiles();
@@ -166,21 +168,24 @@ public class MapGenerator : MonoBehaviour
 
         pathTiles.Add(endTile);
 
+        int pathIndex = 0;
         foreach (GameObject obj in pathTiles)
         {
             float pathScale = 0.391f;
             obj.transform.localScale = new Vector3(pathScale, pathScale, pathScale);
             obj.GetComponent<SpriteRenderer>().sprite = pathSprite;
             obj.GetComponent<SpriteRenderer>().color = pathColor;
+            obj.name = "" + pathIndex++;
         }
-        
+
         startTile.GetComponent<SpriteRenderer>().sprite = pathSprite;
         startTile.GetComponent<SpriteRenderer>().color = startColor;
-        
+
         endTile.GetComponent<SpriteRenderer>().sprite = castleSprite;
+        endTile.tag = "Finish";
         float castleScale = 1f;
         endTile.transform.localScale = new Vector3(castleScale, castleScale, castleScale);
-        
+
     }
 }
 
