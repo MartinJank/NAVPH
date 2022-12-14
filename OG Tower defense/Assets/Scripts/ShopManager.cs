@@ -5,11 +5,6 @@ using UnityEngine;
 public class ShopManager : MonoBehaviour
 {
     public MoneyManager moneyManager;
-    public GameObject basicTowerPrefab;
-    public int basicTowerCost;
-
-    public GameObject mediumTowerPrefab;
-    public int mediumTowerCost;
 
     public int GetTowerCost(GameObject towerPrefab)
     {
