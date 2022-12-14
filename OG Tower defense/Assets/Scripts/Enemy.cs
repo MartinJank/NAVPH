@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour { 
+public class Enemy : MonoBehaviour {
     public static List<GameObject> enemies;
     [SerializeField] private float enemyHealth; 
     [SerializeField] public float movementSpeed; 
@@ -20,15 +20,28 @@ public class Enemy : MonoBehaviour {
         Enemies.enemies.Add(gameObject);
     }
 
-    private void Start() 
+    private void Start()
     {
         initializeEnemy();
         tag = "Enemy";
     }
 
-    private void initializeEnemy() 
-    { 
+    private void initializeEnemy()
+    {
         targetTile = MapGenerator.startTile;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.GetComponent<Tower>() != null) {
+            collision.gameObject.GetComponent<Tower>().addToEnemiesInRange(this.gameObject);
+        }
+        // enemiesInRange.Add(collision.gameObject);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision) {
+        if (collision.gameObject.GetComponent<Tower>() != null) {
+            collision.gameObject.GetComponent<Tower>().removeEnemiesInRange();
+        }
     }
 
     public void takeDemage(float amount) {
@@ -44,12 +57,12 @@ public class Enemy : MonoBehaviour {
         Destroy(transform.gameObject);
     }
 
-    private void moveEnemy() 
-    { 
+    private void moveEnemy()
+    {
         transform.position = Vector3.MoveTowards(transform.position, targetTile.transform.position, movementSpeed*Time.deltaTime);
-    } 
+    }
 
-    private void checkPosition() 
+    private void checkPosition()
     {
         if (targetTile != null && targetTile != MapGenerator.endTile) {
             float distance  = (transform.position - targetTile.transform.position).magnitude;
@@ -66,8 +79,8 @@ public class Enemy : MonoBehaviour {
             die();
         }
     }
-    
-    private void Update() 
+
+    private void Update()
     {
         checkPosition();
         moveEnemy();

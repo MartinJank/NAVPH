@@ -20,6 +20,5 @@ public class MoneyManager : MonoBehaviour
 
     public void RemoveMoney(int amount){
         currentPlayerMoney -= amount;
-        Debug.Log("Remove" + amount + " Player has:" + currentPlayerMoney);
     }
 }

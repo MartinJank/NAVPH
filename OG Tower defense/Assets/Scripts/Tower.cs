@@ -1,17 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
 
     [SerializeField] private float range;
-    [SerializeField] private float damage;
+    [SerializeField] public float damage;
     [SerializeField] private float attackSpeed;
+    [SerializeField] private int cost;
+    [SerializeField] private Transform RangeCircle;
 
-    public GameObject currentTarget;
+    [SerializeField] private CircleCollider2D CircleCollider2D;
+
+    public GameObject currentTarget = null;
+    private List<GameObject> enemiesInRange = new List<GameObject>();
 
     private float nextTimeShoot;
+    
+    public void HideRange() {
+        RangeCircle.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
+    }
+
+    public void addToEnemiesInRange(GameObject enemy) {
+        enemiesInRange.Add(enemy);
+    }
+
+    public void removeEnemiesInRange() {
+        if (enemiesInRange.Count > 0) {
+            enemiesInRange.RemoveAt(0);
+        }
+    }
+    private void Awake() {
+        RangeCircle.localScale = new Vector3(range*2, range*2, range*2);
+        CircleCollider2D.radius = range;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -19,23 +43,15 @@ public class Tower : MonoBehaviour
     }
 
     private void updateNearestEnemy() {
-        GameObject currentNearestEnemy = null;
-        float distance = Mathf.Infinity;
-        foreach(GameObject enemy in Enemies.enemies) {
-            if (enemy != null) {
-                float _distance = (transform.position - enemy.transform.position).magnitude;
-                if (_distance < distance) {
-                    distance = _distance;
-                    currentNearestEnemy = enemy;
-                }
+        if (enemiesInRange.Count > 0) {
+            if (enemiesInRange[0] == null) {
+                enemiesInRange.RemoveAt(0);
             }
-        }
-
-        if (distance <= range) {
-            currentTarget = currentNearestEnemy;
+            currentTarget = enemiesInRange.FirstOrDefault();
         } else {
             currentTarget = null;
         }
+        Debug.Log("EnemiesCount: " + enemiesInRange.Count);
     }
 
     protected virtual void shoot() {
@@ -43,12 +59,15 @@ public class Tower : MonoBehaviour
         enemyScript.takeDemage(damage);
     }
 
+    public int GetCost() { 
+        return cost;
+    }
 
     // Update is called once per frame
     void Update()
     {
         updateNearestEnemy();
-
+         
         if (Time.time >= nextTimeShoot) {
             if (currentTarget != null) {
                 shoot();
