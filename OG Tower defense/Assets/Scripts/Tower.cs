@@ -51,7 +51,6 @@ public class Tower : MonoBehaviour
         } else {
             currentTarget = null;
         }
-        Debug.Log("EnemiesCount: " + enemiesInRange.Count);
     }
 
     protected virtual void shoot() {
