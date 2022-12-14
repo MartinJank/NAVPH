@@ -302,11 +302,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea27ed67cf172c44e937bdb456ce7308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 3
+  range: 5
   damage: 10
   attackSpeed: 1
   cost: 100
   RangeCircle: {fileID: 7799849709160927737}
+  CircleCollider2D: {fileID: 7673070852668301221}
   currentTarget: {fileID: 0}
   pivot: {fileID: 3824323263282682496}
   barrel: {fileID: 7912192239739698460}

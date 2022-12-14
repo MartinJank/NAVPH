@@ -303,10 +303,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 3
-  damage: 8
+  damage: 33
   attackSpeed: 0.5
   cost: 200
   RangeCircle: {fileID: 3461556238122661634}
+  CircleCollider2D: {fileID: 1086375830305188024}
   currentTarget: {fileID: 0}
   pivot: {fileID: 3824323263282682496}
   barrel: {fileID: 7912192239739698460}
