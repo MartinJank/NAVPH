@@ -13,6 +13,7 @@ public class UIText : MonoBehaviour
     public string errorMessage;
     public MoneyManager moneyManager;
     public MapGenerator mapGenerator;
+
     // Start is called before the first frame update
     private void Start()
     {
