@@ -28,6 +28,6 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        transform.position += transform.right * 0.3f;
+        transform.position += transform.right * 0.1f;
     }
 }

@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour {
     public static List<GameObject> enemies;
     [SerializeField] private float enemyHealth; 
     [SerializeField] public float movementSpeed; 
+    [SerializeField] public GameObject blood; 
     private int killReward = 25; // The amount of money the player gets when this enemy is killed 
     private int damage = 1; // The amount of damage the enemy does when it reaches the end 
     private GameObject targetTile; 
@@ -54,6 +55,7 @@ public class Enemy : MonoBehaviour {
 
     private void die() {
         Enemies.enemies.Remove(gameObject);
+        Instantiate(blood, transform.position, Quaternion.identity);
         Destroy(transform.gameObject);
     }
 
@@ -69,7 +71,6 @@ public class Enemy : MonoBehaviour {
             if (distance < 0.001f) {
                 int currentIndex = MapGenerator.pathTiles.IndexOf(targetTile);
                 targetTile = MapGenerator.pathTiles[currentIndex + 1];
-                // name = targetTile.name;
             }
         } else if (transform.position == MapGenerator.endTile.transform.position) {
             mapGenerator.damageCastle(damage);
@@ -80,9 +81,26 @@ public class Enemy : MonoBehaviour {
         }
     }
 
+    private void rotateAccordingToDirection()
+    {
+        // Vector3 relativePos = targetTile.transform.position - transform.position;
+
+        // // the second argument, upwards, defaults to Vector3.up
+        // Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+        // transform.rotation = rotation;
+
+        Vector3 moveDirection = targetTile.transform.position - transform.position; 
+        if (moveDirection != Vector3.zero) 
+        {
+            float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
+    }
+
     private void Update()
     {
         checkPosition();
+        rotateAccordingToDirection();
         moveEnemy();
     }
 }

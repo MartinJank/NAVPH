@@ -153,10 +153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyManager: {fileID: 614225590}
-  basicTowerPrefab: {fileID: 9074643153883374729, guid: f4b312a297cc27149b19d939a6953153, type: 3}
-  basicTowerCost: 100
-  mediumTowerPrefab: {fileID: 0}
-  mediumTowerCost: 0
 --- !u!4 &19790561
 Transform:
   m_ObjectHideFlags: 0
@@ -889,6 +885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 260c009cac60f2f4fbdad4d7417faedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPlayerMoney: 0
   starterMoney: 500
 --- !u!4 &614225591
 Transform:
@@ -6134,28 +6131,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1962085082}
-  - component: {fileID: 1962085081}
+  - component: {fileID: 1962085085}
   - component: {fileID: 1962085083}
   - component: {fileID: 1962085084}
   m_Layer: 0
-  m_Name: Test spell
+  m_Name: Cast spells
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1962085081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1962085080}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b2e3a8adc6c13448d88e999578a714, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1962085082
 Transform:
   m_ObjectHideFlags: 0
@@ -6183,6 +6168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6fa5e79b6c66f74b807ee64cef6d4d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyManager: {fileID: 614225590}
+  cost: 200
+  lightning: {fileID: 4794043405585894037, guid: 37138c0c33167b04fa1fb90b7f5a794f, type: 3}
 --- !u!114 &1962085084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6195,4 +6183,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a03faf9f14eea4d82152457899ae78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyManager: {fileID: 614225590}
+  cost: 100
   delay: 3
+--- !u!114 &1962085085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962085080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b2e3a8adc6c13448d88e999578a714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyManager: {fileID: 614225590}
+  cost: 100

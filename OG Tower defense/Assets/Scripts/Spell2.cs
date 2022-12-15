@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Spell2 : MonoBehaviour
 {
+    public MoneyManager moneyManager;
+    [SerializeField] private int cost;
+    [SerializeField] private GameObject lightning; 
     void Update()
     {
-        if (Input.GetKeyDown("x"))
+        if (Input.GetKeyDown("x") && moneyManager.currentPlayerMoney >= cost)
         {
             DamageAllEnemies();
+            moneyManager.RemoveMoney(cost);
         }
     }
 
@@ -20,6 +24,7 @@ public class Spell2 : MonoBehaviour
         foreach (GameObject item in gos)
         {
             Enemy enemy = item.GetComponent<Enemy>();
+            Instantiate(lightning, item.transform.position, Quaternion.identity);
             enemy.takeDemage(50);
         }
     }
