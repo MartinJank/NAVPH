@@ -29,5 +29,13 @@ public class Spell2 : MonoBehaviour
         }
     }
 
+    public void Cast()
+    {
+        if (moneyManager.currentPlayerMoney >= cost)
+        {
+            DamageAllEnemies();
+            moneyManager.RemoveMoney(cost);
+        }
+    }
 
 }
