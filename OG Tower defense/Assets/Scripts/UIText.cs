@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class UIText : MonoBehaviour
@@ -8,18 +9,32 @@ public class UIText : MonoBehaviour
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private TextMeshProUGUI errorText;
+    [SerializeField] private GameObject timeFasterButton;
     public bool isError;
     public float nextTime;
     public string errorMessage;
     public MoneyManager moneyManager;
     public MapGenerator mapGenerator;
-
+    public bool is2Time = false;
+    
     // Start is called before the first frame update
     private void Start()
     {
         moneyText.text = "" + moneyManager.GetPlayerCurrentMoney();
         errorText.text = "";
         isError = false;
+    }
+
+    public void MakeFaster() {
+        if (!is2Time) {
+            is2Time = true;
+            Time.timeScale = 2f;
+            timeFasterButton.GetComponent<Image>().color = new Color(150,255,0);
+        } else {
+            is2Time = false;
+            Time.timeScale = 1f;
+            timeFasterButton.GetComponent<Image>().color = new Color(211,255,148);
+        }
     }
 
     // Update is called once per frame
