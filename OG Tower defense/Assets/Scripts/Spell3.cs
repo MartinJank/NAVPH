@@ -37,4 +37,24 @@ public class Spell3 : MonoBehaviour
             enemy.movementSpeed *= 2f;
         }
     }
+
+    public void Cast()
+    {
+        if (moneyManager.currentPlayerMoney >= cost)
+        {
+            moneyManager.RemoveMoney(cost);
+            float originalSpeed = 0f;
+            foreach (GameObject item in Enemies.enemies)
+            {
+                Enemy enemy = item.GetComponent<Enemy>();
+                originalSpeed = enemy.movementSpeed;
+                Debug.Log(enemy.movementSpeed);
+                enemy.movementSpeed /= 2f;
+                slowEnemies.Add(item);
+                // Debug.Log(enemy.movementSpeed);
+            }
+            StartCoroutine(SlowDownEnemy(delay, originalSpeed));
+        }
+
+    }
 }

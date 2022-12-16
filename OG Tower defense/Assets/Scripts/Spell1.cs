@@ -6,6 +6,7 @@ public class Spell1 : MonoBehaviour
 {
     public MoneyManager moneyManager;
     [SerializeField] private int cost;
+    [SerializeField] public GameObject blood; 
     void Update()
     {
         if (Input.GetKeyDown("z") && moneyManager.currentPlayerMoney >= cost)
@@ -13,6 +14,7 @@ public class Spell1 : MonoBehaviour
             moneyManager.RemoveMoney(cost);
             GameObject[] enemyList = ClosestBasedOnTiles();
             Enemies.enemies.Remove(enemyList[0]);
+            Instantiate(blood, transform.position, Quaternion.identity);
             Destroy(enemyList[0].gameObject);
         }
     }
@@ -22,6 +24,17 @@ public class Spell1 : MonoBehaviour
         GameObject[] gos;
         gos = GameObject.FindGameObjectsWithTag("Enemy");
         return gos;
+    }
+
+    public void Cast() {
+        if (moneyManager.currentPlayerMoney >= cost)
+        {
+            moneyManager.RemoveMoney(cost);
+            GameObject[] enemyList = ClosestBasedOnTiles();
+            Enemies.enemies.Remove(enemyList[0]);
+            Instantiate(blood, transform.position, Quaternion.identity);
+            Destroy(enemyList[0].gameObject);
+        }
     }
 
 }
