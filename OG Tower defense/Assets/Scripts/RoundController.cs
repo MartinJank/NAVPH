@@ -48,6 +48,18 @@ public class RoundController : MonoBehaviour
                 {
                     GameObject newEnemy = Instantiate(basicEnemy, MapGenerator.startTile.transform.position, Quaternion.identity);
                 }
+            } else if (round > 4) {
+                int random = Random.Range(0, 3);
+                if (random == 1)
+                {
+                    GameObject newEnemy = Instantiate(fastEnemy, MapGenerator.startTile.transform.position, Quaternion.identity);
+                }
+                else if (random == 2)
+                {
+                    GameObject newEnemy = Instantiate(basicEnemy, MapGenerator.startTile.transform.position, Quaternion.identity);
+                } else {
+                    GameObject newEnemy = Instantiate(bigEnemy, MapGenerator.startTile.transform.position, Quaternion.identity);
+                }
             }
             else
             {

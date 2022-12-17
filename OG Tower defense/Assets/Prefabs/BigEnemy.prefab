@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5125818422708475654}
   - component: {fileID: 6304824833280953458}
-  - component: {fileID: 8568083328341161110}
   - component: {fileID: -244220607420232143}
   - component: {fileID: 1703560832677920711}
+  - component: {fileID: 7988531199210252435}
   m_Layer: 0
   m_Name: BigEnemy
   m_TagString: Untagged
@@ -87,25 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8568083328341161110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4300398218025990476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59df130f9282a0145969a34c7c617f1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHealth: 200
-  movementSpeed: 0.3
-  blood: {fileID: 1570927096764274, guid: 643639841fb531e4ba8097fed4eb9ac7, type: 3}
-  targetTile: {fileID: 0}
-  moneyManager: {fileID: 0}
-  mapGenerator: {fileID: 0}
-  roundController: {fileID: 0}
 --- !u!61 &-244220607420232143
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -153,3 +134,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7988531199210252435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4300398218025990476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a60752e6c5ed849bfbf55739d15ebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 300
+  movementSpeed: 0.3
+  blood: {fileID: 1570927096764274, guid: 643639841fb531e4ba8097fed4eb9ac7, type: 3}
+  targetTile: {fileID: 0}
+  moneyManager: {fileID: 0}
+  mapGenerator: {fileID: 0}
+  roundController: {fileID: 0}

@@ -203,6 +203,7 @@ public class MapGenerator : MonoBehaviour
             obj.GetComponent<SpriteRenderer>().sprite = pathSprite;
             obj.GetComponent<SpriteRenderer>().color = pathColor;
             obj.name = "" + pathIndex++;
+            obj.GetComponent<Tile>().fromStart = pathIndex++;
         }
 
         startTile.GetComponent<SpriteRenderer>().sprite = pathSprite;

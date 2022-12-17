@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Tower : MonoBehaviour
 {
@@ -79,10 +80,21 @@ public class Tower : MonoBehaviour
 
     private void updateNearestEnemy() {
         if (enemiesInRange.Count > 0) {
+            GameObject max = enemiesInRange[0];
+            foreach (GameObject enemy in enemiesInRange) {
+                if (enemy.GetComponent<Enemy>().targetTile.GetComponent<Tile>().fromStart > max.GetComponent<Enemy>().targetTile.GetComponent<Tile>().fromStart){
+                    max = enemy;
+                }
+            }
             if (enemiesInRange[0] == null) {
                 enemiesInRange.RemoveAt(0);
             }
-            currentTarget = enemiesInRange.FirstOrDefault();
+            
+            if (max != null) {
+                currentTarget = max;
+            } else {
+                currentTarget = enemiesInRange.FirstOrDefault();
+            }
         } else {
             currentTarget = null;
         }
@@ -122,13 +134,19 @@ public class Tower : MonoBehaviour
 
     public void updateTower() {
         if (moneyManager.currentPlayerMoney >= costUpgrade) {
-            moneyManager.RemoveMoney(costUpgrade);
-            damage = damage + 0.1f*damage;
-            range = range + 0.05f*range;
-            attackSpeed = attackSpeed - 0.03f*attackSpeed;
-            level += 1;
+            if (possibleLevel == level) {
+                uiText.isError = true;
+                uiText.errorMessage = "Max Level Reached";
+                uiText.nextTime = Time.time + 2f; 
+            } else {
+                moneyManager.RemoveMoney(costUpgrade);
+                damage = damage + 0.1f*damage;
+                range = range + 0.05f*range;
+                attackSpeed = attackSpeed - 0.03f*attackSpeed;
+                level += 1;
 
-            UpdateRange();
+                UpdateRange();
+            }
         } else {
             uiText.isError = true;
             uiText.errorMessage = "Not enough money";

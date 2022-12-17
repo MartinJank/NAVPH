@@ -21,6 +21,10 @@ public class Enemy : MonoBehaviour {
         Enemies.enemies.Add(gameObject);
     }
 
+    public void setStartTile(GameObject target) {
+        targetTile = target;
+    }
+
     private void Start()
     {
         initializeEnemy();
@@ -29,7 +33,9 @@ public class Enemy : MonoBehaviour {
 
     private void initializeEnemy()
     {
-        targetTile = MapGenerator.startTile;
+        if (targetTile == null) {
+            targetTile = MapGenerator.startTile;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
@@ -53,18 +59,7 @@ public class Enemy : MonoBehaviour {
         }
     }
 
-    private void die() {
-
-        if (name == "BigEnemy(Clone)")
-        {
-            for (int i = 0; i < 2; i++)
-            {
-                GameObject newEnemy = Instantiate(roundController.basicEnemy, transform.position, Quaternion.identity);
-                // Enemy enemy = newEnemy.GetComponent<Enemy>();
-                // enemy.targetTile = targetTile;
-            }
-        }
-
+    protected virtual void die() {
         Enemies.enemies.Remove(gameObject);
         Instantiate(blood, transform.position, Quaternion.identity);
         Destroy(transform.gameObject);

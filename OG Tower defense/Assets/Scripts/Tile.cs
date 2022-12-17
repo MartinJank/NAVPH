@@ -6,4 +6,6 @@ public class Tile : MonoBehaviour
 {
    [SerializeField] public bool occupied;
    [SerializeField] public GameObject towerOccupied;
+
+   [SerializeField] public int fromStart;
 }
