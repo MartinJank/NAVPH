@@ -7,13 +7,13 @@ using TMPro;
 public class Tower : MonoBehaviour
 {
 
-    [SerializeField] private string name;
-    [SerializeField] private float range;
+    [SerializeField] public string name;
+    [SerializeField] public float range;
     [SerializeField] public float damage;
-    [SerializeField] private float attackSpeed;
+    [SerializeField] public float attackSpeed;
     [SerializeField] private int cost;
-    [SerializeField] private int costUpgrade;
-    [SerializeField] private int level;
+    [SerializeField] public int costUpgrade;
+    [SerializeField] public int level;
     [SerializeField] public int possibleLevel;
     [SerializeField] private Transform RangeCircle;
     [SerializeField] private GameObject towerMenu;
@@ -109,7 +109,7 @@ public class Tower : MonoBehaviour
 
         towerName.text = ""+name;
         levelText.text = ""+level;
-        costText.text = ""+costUpgrade;;
+        costText.text = ""+costUpgrade;
 
         statsLabelDamage.text = ""+damage.ToString("0.00");
         statsLabelRange.text = ""+range.ToString("0.00");
