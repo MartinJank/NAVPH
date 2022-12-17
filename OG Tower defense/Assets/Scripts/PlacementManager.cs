@@ -34,7 +34,7 @@ public class PlacementManager : MonoBehaviour
                 if (!MapGenerator.pathTiles.Contains(hit.collider.gameObject)){
                     hoverTile = hit.collider.gameObject.GetComponent<Tile>();
                 }
-            }
+            } 
          } else {
             hoverTile = null;
          }
