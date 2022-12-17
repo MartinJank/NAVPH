@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour {
     [SerializeField] public GameObject blood; 
     private int killReward = 25; // The amount of money the player gets when this enemy is killed 
     private int damage = 1; // The amount of damage the enemy does when it reaches the end 
-    private GameObject targetTile; 
+    public GameObject targetTile; 
     private GameObject term;
     public MoneyManager moneyManager;
     public MapGenerator mapGenerator;
@@ -54,6 +54,17 @@ public class Enemy : MonoBehaviour {
     }
 
     private void die() {
+
+        if (name == "BigEnemy(Clone)")
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                GameObject newEnemy = Instantiate(roundController.basicEnemy, transform.position, Quaternion.identity);
+                // Enemy enemy = newEnemy.GetComponent<Enemy>();
+                // enemy.targetTile = targetTile;
+            }
+        }
+
         Enemies.enemies.Remove(gameObject);
         Instantiate(blood, transform.position, Quaternion.identity);
         Destroy(transform.gameObject);

@@ -5,12 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void StartGame() {
+    public void StartNewGame() {
         Debug.Log("Starting");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        LevelCounter.control.level = 3;
+        SceneManager.LoadScene("GameScene");
+    }
+
+    public void ContinueGame() {
+        Debug.Log("Continue");
+        SceneManager.LoadScene("GameScene");
     }
 
     public void StopGame() {
         Application.Quit();
+    }
+
+    public void BackToMenu() {
+        SceneManager.LoadScene("MenuScene");
     }
 }

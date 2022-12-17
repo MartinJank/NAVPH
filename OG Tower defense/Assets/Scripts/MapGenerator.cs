@@ -7,8 +7,8 @@ public class MapGenerator : MonoBehaviour
     public GameObject MapTile;
     [SerializeField] private int mapWidth;
     [SerializeField] private int mapHeight;
-    [SerializeField] private int numOfCurves;
-    [SerializeField] private int castleHealth;
+    public int numOfCurves;
+    [SerializeField] public int castleHealth;
 
     public static List<GameObject> mapTiles = new List<GameObject>();
     public static List<GameObject> pathTiles = new List<GameObject>();
@@ -29,6 +29,9 @@ public class MapGenerator : MonoBehaviour
 
     private void Start()
     {
+        numOfCurves = LevelCounter.control.level;
+        mapTiles.Clear();
+        pathTiles.Clear();
         generateMap();
     }
 
@@ -130,6 +133,30 @@ public class MapGenerator : MonoBehaviour
 
         List<GameObject> middleTiles = getMiddleTiles();
         middleTiles.Add(endTile);
+
+        // bool generateAgain = false;
+        // for (int i = 0; i < middleTiles.Count - 1; i++)
+        // {
+        //     if (middleTiles[i].transform.position.x - middleTiles[i + 1].transform.position.x < 4) {
+        //         generateAgain = true;
+        //     }
+        // }
+
+        // while (generateAgain)
+        // {
+        //     middleTiles.Clear();
+        //     generateAgain = false;
+
+        //     middleTiles = getMiddleTiles();
+        //     middleTiles.Add(endTile);
+
+        //     for (int i = 0; i < middleTiles.Count - 1; i++)
+        //     {
+        //         if (middleTiles[i].transform.position.x - middleTiles[i + 1].transform.position.x < 4) {
+        //             generateAgain = true;
+        //         }
+        //     }
+        // }
 
         currentTile = startTile;
 

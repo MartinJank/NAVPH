@@ -4059,7 +4059,7 @@ MonoBehaviour:
   MapTile: {fileID: 5067137401157723518, guid: 834e553639d2e8d428339fe80a9304f8, type: 3}
   mapWidth: 10
   mapHeight: 8
-  numOfCurves: 1
+  numOfCurves: 0
   castleHealth: 10
   pathColor: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   startColor: {r: 0, g: 0, b: 0, a: 1}
@@ -9821,6 +9821,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1491097451}
   m_CullTransparentMesh: 1
+--- !u!1 &1494239093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1494239094}
+  - component: {fileID: 1494239095}
+  m_Layer: 0
+  m_Name: LevelCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1494239094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494239093}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 534.41754, y: 277.3483, z: -3.937292}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1494239095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494239093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd3caa46b3f95d458d2a76cc941fa79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 3
+  towerCoins: 0
 --- !u!1 &1507012563
 GameObject:
   m_ObjectHideFlags: 0
@@ -10482,6 +10528,7 @@ MonoBehaviour:
   uiText: {fileID: 1470596089}
   basicEnemy: {fileID: 4300398218025990476, guid: ebc55228fd99e024d8bf47a2f97b3135, type: 3}
   fastEnemy: {fileID: 4300398218025990476, guid: b7b1f5e8138b8ad4799d47bd5332fce3, type: 3}
+  bigEnemy: {fileID: 4300398218025990476, guid: 10853b690f71c404f9b348912dd27eef, type: 3}
   timeWaves: 5
   timeBeforeRoundStarts: 3
   timeVariable: 1
