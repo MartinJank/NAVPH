@@ -14,6 +14,7 @@ public class Tower : MonoBehaviour
     [SerializeField] private int cost;
     [SerializeField] private int costUpgrade;
     [SerializeField] private int level;
+    [SerializeField] public int possibleLevel;
     [SerializeField] private Transform RangeCircle;
     [SerializeField] private GameObject towerMenu;
 

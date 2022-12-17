@@ -118,7 +118,6 @@ public class RoundController : MonoBehaviour
             uiText.isError = true;
             uiText.errorMessage = "Castle destroyed!";
             notOver = false;
-            LevelCounter.control.level--;
             SceneManager.LoadScene("MenuScene");
         }
     }
