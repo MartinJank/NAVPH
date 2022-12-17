@@ -2565,6 +2565,7 @@ MonoBehaviour:
   healthText: {fileID: 1883946564}
   errorText: {fileID: 1661340358}
   timeFasterButton: {fileID: 1491097451}
+  towerMenu: {fileID: 0}
   isError: 0
   nextTime: 0
   errorMessage: 
@@ -2611,6 +2612,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   isBuilding: 0
+  isUpgrading: 0
 --- !u!4 &699315158
 Transform:
   m_ObjectHideFlags: 0
@@ -4061,6 +4063,7 @@ MonoBehaviour:
   mapHeight: 8
   numOfCurves: 1
   castleHealth: 10
+  mapGenerated: 0
   pathColor: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   startColor: {r: 0, g: 0, b: 0, a: 1}
   pathSprite: {fileID: 21300000, guid: f505cf1794718e4459e31fe23d8315c9, type: 3}
@@ -9590,6 +9593,7 @@ MonoBehaviour:
   healthText: {fileID: 1883946564}
   errorText: {fileID: 1661340358}
   timeFasterButton: {fileID: 1491097451}
+  towerMenu: {fileID: 0}
   isError: 0
   nextTime: 0
   errorMessage: 
@@ -9722,10 +9726,10 @@ RectTransform:
   m_Father: {fileID: 666624852}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -351.19, y: -50.801804}
-  m_SizeDelta: {x: 69.616, y: 31.6038}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 38.809998, y: -73.4}
+  m_SizeDelta: {x: 69.616, y: 31.603798}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1491097453
 MonoBehaviour:

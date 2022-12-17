@@ -10,11 +10,12 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private int numOfCurves;
     [SerializeField] private int castleHealth;
 
-    public static List<GameObject> mapTiles = new List<GameObject>();
-    public static List<GameObject> pathTiles = new List<GameObject>();
+    [SerializeField] public static List<GameObject> mapTiles = new List<GameObject>();
+    [SerializeField] public static List<GameObject> pathTiles = new List<GameObject>();
 
-    public static GameObject startTile;
-    public static GameObject endTile;
+    [SerializeField] public static GameObject startTile;
+    [SerializeField] public static GameObject endTile;
+    [SerializeField] private bool mapGenerated= false;
 
     private bool reachedX = false;
     private bool reachedY = false;
@@ -29,6 +30,8 @@ public class MapGenerator : MonoBehaviour
 
     private void Start()
     {
+        mapTiles.Clear();
+        pathTiles.Clear();
         generateMap();
     }
 
@@ -124,7 +127,6 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
-
         startTile = getTopEdgeTiles()[Random.Range(0, mapWidth)];
         endTile = getBottomEdgeTiles()[Random.Range(0, mapWidth)];
 
@@ -185,7 +187,7 @@ public class MapGenerator : MonoBehaviour
         endTile.tag = "Finish";
         float castleScale = 1f;
         endTile.transform.localScale = new Vector3(castleScale, castleScale, castleScale);
-
+        mapGenerated = true;
     }
 }
 

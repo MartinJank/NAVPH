@@ -14,7 +14,8 @@ public class PlacementManager : MonoBehaviour
     public Camera cam;
     public LayerMask mask;
     public LayerMask towerMask;
-    public bool isBuilding;
+    public bool isBuilding = false;
+    public bool isUpgrading = false;
 
     public void Start() {
      }
@@ -34,6 +35,8 @@ public class PlacementManager : MonoBehaviour
                     hoverTile = hit.collider.gameObject.GetComponent<Tile>();
                 }
             }
+         } else {
+            hoverTile = null;
          }
     }
 
@@ -68,7 +71,8 @@ public class PlacementManager : MonoBehaviour
     }
 
     public void startBuilding(GameObject towerToBuild) {
-        if (isBuilding == false) {
+        if (isBuilding == false && isUpgrading == false) {
+            hoverTile = null;
             isBuilding = true;
             currentTowerPlacing = towerToBuild;
             dummyPlacement = Instantiate(currentTowerPlacing);
@@ -90,7 +94,7 @@ public class PlacementManager : MonoBehaviour
     }
 
     public void Update() {
-        if (isBuilding == true) {
+        if (isBuilding) {
             if (dummyPlacement != null) {
                 getCurrentHoverTile();
                 if (hoverTile != null && !hoverTile.occupied) {
@@ -100,9 +104,24 @@ public class PlacementManager : MonoBehaviour
             if (Input.GetButtonUp("Fire1") && hoverTile != null) {
                 PlaceBuilding();
             }
-            if (Input.GetButtonDown("Fire2")) {
+            if (Input.GetButtonUp("Fire2")) {
                 endBuilding();
             }
+        } else if (!isBuilding) {
+            if (!isUpgrading && Input.GetButtonUp("Fire1")) {
+                getCurrentHoverTile();
+                if (hoverTile != null && hoverTile.occupied) {
+                    Tower currentTower = hoverTile.towerOccupied.GetComponent<Tower>();
+                    if (currentTower != null) {
+                        isUpgrading = true;
+                        currentTower.showUpgradeMenu();
+                    }
+                } 
+            } else if (isUpgrading && (Input.GetButtonUp("Fire2") || Input.GetButtonUp("Fire1"))) {
+                hoverTile.towerOccupied.GetComponent<Tower>().closeUpgradeMenu();
+                isUpgrading = false;
+            }
+            
         }
     }
 }

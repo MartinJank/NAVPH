@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class RoundController : MonoBehaviour
 {
@@ -71,6 +73,7 @@ public class RoundController : MonoBehaviour
             uiText.isError = true;
             uiText.errorMessage = "Castle destroyed!";
             notOver = false;
+            SceneManager.LoadScene("MenuScene");
         }
     }
 }
