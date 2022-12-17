@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour {
 
     private void OnCollisionExit2D(Collision2D collision) {
         if (collision.gameObject.GetComponent<Tower>() != null) {
-            collision.gameObject.GetComponent<Tower>().removeEnemiesInRange();
+            collision.gameObject.GetComponent<Tower>().removeEnemiesInRange(this.gameObject);
         }
     }
 

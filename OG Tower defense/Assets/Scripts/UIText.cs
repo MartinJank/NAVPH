@@ -38,10 +38,6 @@ public class UIText : MonoBehaviour
         }
     }
 
-    public void UpgradeTower(Tower tower) {
-        tower.updateTower(10, 0.1f, 0.1f);
-    }
-
     // Update is called once per frame
     void Update()
     {

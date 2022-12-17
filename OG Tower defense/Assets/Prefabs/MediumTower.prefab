@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 90.83193, y: -6.7998767}
-  m_SizeDelta: {x: 25.0135, y: 14.649}
+  m_AnchoredPosition: {x: 79.84087, y: -6.7998767}
+  m_SizeDelta: {x: 29.5226, y: 14.649}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5975703686846744991
 CanvasRenderer:
@@ -421,8 +421,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 90.831924, y: -24.9}
-  m_SizeDelta: {x: 25.0135, y: 14.649}
+  m_AnchoredPosition: {x: 79.840866, y: -24.9}
+  m_SizeDelta: {x: 29.5226, y: 14.649}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5186610580814802249
 CanvasRenderer:
@@ -691,8 +691,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 115.1, y: 10.429003}
-  m_SizeDelta: {x: 25.0098, y: 14.649}
+  m_AnchoredPosition: {x: 111.57723, y: 10.429003}
+  m_SizeDelta: {x: 32.0554, y: 14.649}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6273195160996783399
 CanvasRenderer:
@@ -826,8 +826,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 115.09999, y: -24.899998}
-  m_SizeDelta: {x: 25.0098, y: 14.649}
+  m_AnchoredPosition: {x: 111.577225, y: -24.899998}
+  m_SizeDelta: {x: 32.0554, y: 14.649}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3971124793330336717
 CanvasRenderer:
@@ -1501,8 +1501,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 115.1, y: -6.7998767}
-  m_SizeDelta: {x: 25.0098, y: 14.649}
+  m_AnchoredPosition: {x: 111.57723, y: -6.7998767}
+  m_SizeDelta: {x: 32.0554, y: 14.649}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6607713271585446214
 CanvasRenderer:
@@ -1722,7 +1722,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7293341465439497474}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2492974550911885554}
+        m_TargetAssemblyTypeName: Tower, Assembly-CSharp
+        m_MethodName: updateTower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6751188156326822483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1949,8 +1961,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 90.83193, y: 10.429003}
-  m_SizeDelta: {x: 25.0135, y: 14.649}
+  m_AnchoredPosition: {x: 79.84087, y: 10.429003}
+  m_SizeDelta: {x: 29.5226, y: 14.649}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7208252685226238296
 CanvasRenderer:
@@ -2525,6 +2537,7 @@ MonoBehaviour:
   upgradeLabelRange: {fileID: 8851168109471169836}
   upgradeLabelAttackSpeed: {fileID: 5857612360238103277}
   CircleCollider2D: {fileID: 1086375830305188024}
+  moneyManager: {fileID: 0}
   currentTarget: {fileID: 0}
   pivot: {fileID: 3824323263282682496}
   barrel: {fileID: 7912192239739698460}

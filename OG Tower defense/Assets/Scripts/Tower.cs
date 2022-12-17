@@ -32,6 +32,9 @@ public class Tower : MonoBehaviour
     [SerializeField] private CircleCollider2D CircleCollider2D;
     Camera cam;
 
+    public MoneyManager moneyManager;
+    public UIText uiText;
+
     public GameObject currentTarget = null;
     private List<GameObject> enemiesInRange = new List<GameObject>();
 
@@ -41,18 +44,30 @@ public class Tower : MonoBehaviour
         RangeCircle.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
     }
 
+    public void showRange() {
+        RangeCircle.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.3f);
+    }
+
     public void addToEnemiesInRange(GameObject enemy) {
         enemiesInRange.Add(enemy);
     }
 
-    public void removeEnemiesInRange() {
+    public void removeEnemiesInRange(GameObject enemy) {
         if (enemiesInRange.Count > 0) {
-            enemiesInRange.RemoveAt(0);
+            enemiesInRange.Remove(enemy);
         }
+    }
+
+    private void UpdateRange() {
+        RangeCircle.localScale = new Vector3(range*2, range*2, range*2);
+        CircleCollider2D.radius = range;
     }
     private void Awake() {
         RangeCircle.localScale = new Vector3(range*2, range*2, range*2);
         CircleCollider2D.radius = range;
+
+        moneyManager = GameObject.FindObjectsOfType<MoneyManager>()[0];
+        uiText = GameObject.FindObjectsOfType<UIText>()[0];
     }
     // Start is called before the first frame update
     void Start()
@@ -95,19 +110,30 @@ public class Tower : MonoBehaviour
         levelText.text = ""+level;
         costText.text = ""+costUpgrade;;
 
-        statsLabelDamage.text = ""+damage;
-        statsLabelRange.text = ""+range;
-        statsLabelAttackSpeed.text = ""+attackSpeed;
+        statsLabelDamage.text = ""+damage.ToString("0.00");
+        statsLabelRange.text = ""+range.ToString("0.00");
+        statsLabelAttackSpeed.text = ""+attackSpeed.ToString("0.00");
 
-        upgradeLabelDamage.text = "+ 10";
-        upgradeLabelRange.text = "+ 0.1";
-        upgradeLabelAttackSpeed.text = "- 0.1";
+        upgradeLabelDamage.text = "+ 10%";
+        upgradeLabelRange.text = "+ 5%";
+        upgradeLabelAttackSpeed.text = "- 3%";
     }
 
-    public void updateTower(int newDamage, float newRange, float newAttackSpeed) {
-        damage = damage + newRange;
-        range = range + newRange;
-        attackSpeed = attackSpeed + newAttackSpeed;
+    public void updateTower() {
+        if (moneyManager.currentPlayerMoney >= costUpgrade) {
+            moneyManager.RemoveMoney(costUpgrade);
+            damage = damage + 0.1f*damage;
+            range = range + 0.05f*range;
+            attackSpeed = attackSpeed - 0.03f*attackSpeed;
+            level += 1;
+
+            UpdateRange();
+        } else {
+            uiText.isError = true;
+            uiText.errorMessage = "Not enough money";
+            uiText.nextTime = Time.time + 2f; 
+        }
+        
     }
 
     // Update is called once per frame

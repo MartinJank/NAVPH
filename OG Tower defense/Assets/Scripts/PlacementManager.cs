@@ -115,10 +115,12 @@ public class PlacementManager : MonoBehaviour
                     if (currentTower != null) {
                         isUpgrading = true;
                         currentTower.showUpgradeMenu();
+                        currentTower.showRange();
                     }
                 } 
             } else if (isUpgrading && (Input.GetButtonUp("Fire2") || Input.GetButtonUp("Fire1"))) {
                 hoverTile.towerOccupied.GetComponent<Tower>().closeUpgradeMenu();
+                hoverTile.towerOccupied.GetComponent<Tower>().HideRange();
                 isUpgrading = false;
             }
             
