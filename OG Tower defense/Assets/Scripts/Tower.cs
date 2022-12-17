@@ -10,9 +10,11 @@ public class Tower : MonoBehaviour
     [SerializeField] public float damage;
     [SerializeField] private float attackSpeed;
     [SerializeField] private int cost;
+    [SerializeField] private int level;
     [SerializeField] private Transform RangeCircle;
-
+    [SerializeField] private GameObject towerMenu;
     [SerializeField] private CircleCollider2D CircleCollider2D;
+    Camera cam;
 
     public GameObject currentTarget = null;
     private List<GameObject> enemiesInRange = new List<GameObject>();
@@ -39,6 +41,7 @@ public class Tower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cam = Camera.main;
         nextTimeShoot = Time.time;
     }
 
@@ -60,6 +63,23 @@ public class Tower : MonoBehaviour
 
     public int GetCost() { 
         return cost;
+    }
+
+     public void closeUpgradeMenu() {
+        towerMenu.SetActive(false);
+    }
+
+    public void showUpgradeMenu() {
+        towerMenu.SetActive(true);
+        Vector3 screenPos = cam.WorldToScreenPoint(transform.position);
+        Vector3 uiPos = new Vector3(screenPos.x, screenPos.y, screenPos.z);
+        towerMenu.transform.position = uiPos;
+    }
+
+    public void updateTower(int newDamage, float newRange, float newAttackSpeed) {
+        damage = damage + newRange;
+        range = range + newRange;
+        attackSpeed = attackSpeed + newAttackSpeed;
     }
 
     // Update is called once per frame

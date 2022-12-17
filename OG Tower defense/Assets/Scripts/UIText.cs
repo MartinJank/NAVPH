@@ -10,6 +10,7 @@ public class UIText : MonoBehaviour
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private TextMeshProUGUI errorText;
     [SerializeField] private GameObject timeFasterButton;
+    [SerializeField] private GameObject towerMenu;
     public bool isError;
     public float nextTime;
     public string errorMessage;
@@ -28,13 +29,17 @@ public class UIText : MonoBehaviour
     public void MakeFaster() {
         if (!is2Time) {
             is2Time = true;
-            Time.timeScale = 2f;
+            Time.timeScale = 10f;
             timeFasterButton.GetComponent<Image>().color = new Color(150,255,0);
         } else {
             is2Time = false;
             Time.timeScale = 1f;
             timeFasterButton.GetComponent<Image>().color = new Color(211,255,148);
         }
+    }
+
+    public void UpgradeTower(Tower tower) {
+        tower.updateTower(10, 0.1f, 0.1f);
     }
 
     // Update is called once per frame
