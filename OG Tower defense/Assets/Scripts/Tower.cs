@@ -11,6 +11,7 @@ public class Tower : MonoBehaviour
     [SerializeField] private float attackSpeed;
     [SerializeField] private int cost;
     [SerializeField] private int level;
+    [SerializeField] public int possibleLevel;
     [SerializeField] private Transform RangeCircle;
     [SerializeField] private GameObject towerMenu;
     [SerializeField] private CircleCollider2D CircleCollider2D;
