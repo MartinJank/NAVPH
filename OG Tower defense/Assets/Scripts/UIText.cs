@@ -29,7 +29,7 @@ public class UIText : MonoBehaviour
     public void MakeFaster() {
         if (!is2Time) {
             is2Time = true;
-            Time.timeScale = 10f;
+            Time.timeScale = 2f;
             timeFasterButton.GetComponent<Image>().color = new Color(150,255,0);
         } else {
             is2Time = false;
