@@ -685,7 +685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd3caa46b3f95d458d2a76cc941fa79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 3
+  level: 1
   towerCoins: 5
   basicTowerMaxLevel: 1
   mediumTowerMaxLevel: 1

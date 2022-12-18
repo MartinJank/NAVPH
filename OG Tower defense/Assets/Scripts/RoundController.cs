@@ -97,7 +97,7 @@ public class RoundController : MonoBehaviour
             {
                 if (Enemies.enemies.Count > 0)
                 { // CHECK enemies
-
+                    Debug.Log("HEEEEER");
                 }
                 else
                 {
@@ -130,6 +130,7 @@ public class RoundController : MonoBehaviour
             uiText.isError = true;
             uiText.errorMessage = "Castle destroyed!";
             notOver = false;
+            roundStarted = true;
             SceneManager.LoadScene("MenuScene");
         }
     }
