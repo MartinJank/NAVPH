@@ -907,7 +907,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5620080992921687643}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.25, y: 0, z: 0}
+  m_LocalPosition: {x: 0.07, y: 0, z: 0}
   m_LocalScale: {x: 0.39975, y: 0.39975, z: 0.39975}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2581,7 +2581,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
+  m_Color: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2610,7 +2610,7 @@ MonoBehaviour:
   cost: 100
   costUpgrade: 50
   level: 1
-  possibleLevel: 1
+  possibleLevel: 0
   RangeCircle: {fileID: 7799849709160927737}
   towerMenu: {fileID: 2286341355817653855}
   towerName: {fileID: 5112891400796168864}
@@ -2626,6 +2626,7 @@ MonoBehaviour:
   moneyManager: {fileID: 0}
   uiText: {fileID: 0}
   currentTarget: {fileID: 0}
+  enemiesInRange: []
   pivot: {fileID: 3824323263282682496}
   barrel: {fileID: 7912192239739698460}
   bullet: {fileID: 5505020069641444755, guid: ba1ed767f622a564e87309071fbf777c, type: 3}
