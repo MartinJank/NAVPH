@@ -38,7 +38,7 @@ public class RoundController : MonoBehaviour
     {
         for (int i = 0; i < round * 3; i++)
         {
-            if (round > 3)
+            if (round > 3 && round < 5)
             {
                 if (Random.Range(0, 2) == 0)
                 {
@@ -50,11 +50,11 @@ public class RoundController : MonoBehaviour
                 }
             } else if (round > 4) {
                 int random = Random.Range(0, 3);
-                if (random == 1)
+                if (random == 0)
                 {
                     GameObject newEnemy = Instantiate(fastEnemy, MapGenerator.startTile.transform.position, Quaternion.identity);
                 }
-                else if (random == 2)
+                else if (random == 1)
                 {
                     GameObject newEnemy = Instantiate(basicEnemy, MapGenerator.startTile.transform.position, Quaternion.identity);
                 } else {

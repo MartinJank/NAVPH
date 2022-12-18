@@ -15,7 +15,6 @@ public class PlaceRange : MonoBehaviour
     public LayerMask mask;
     public LayerMask towerMask;
     public bool isBuilding = false;
-    public bool isUpgrading = false;
 
     public void Start() {
      }
@@ -56,7 +55,7 @@ public class PlaceRange : MonoBehaviour
     }
 
     public void startBuilding(GameObject towerToBuild) {
-        if (isBuilding == false && isUpgrading == false) {
+        if (isBuilding == false) {
             hoverTile = null;
             isBuilding = true;
             currentTowerPlacing = towerToBuild;
@@ -92,23 +91,6 @@ public class PlaceRange : MonoBehaviour
             if (Input.GetButtonUp("Fire2")) {
                 endBuilding();
             }
-        } else if (!isBuilding) {
-            if (!isUpgrading && Input.GetButtonUp("Fire1")) {
-                getCurrentHoverTile();
-                // if (hoverTile != null) {
-                //     Tower currentTower = hoverTile.towerOccupied.GetComponent<Tower>();
-                //     if (currentTower != null) {
-                //         isUpgrading = true;
-                //         currentTower.showUpgradeMenu();
-                //         currentTower.showRange();
-                //     }
-                // } 
-            } else if (isUpgrading && (Input.GetButtonUp("Fire2") || Input.GetButtonUp("Fire1"))) {
-                hoverTile.towerOccupied.GetComponent<Tower>().closeUpgradeMenu();
-                hoverTile.towerOccupied.GetComponent<Tower>().HideRange();
-                isUpgrading = false;
-            }
-            
-        }
+        } 
     }
 }

@@ -1763,7 +1763,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2492974550911885554}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Tower, Assembly-CSharp
         m_MethodName: updateTower
         m_Mode: 1
@@ -2510,7 +2510,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6270400522666316220}
   - component: {fileID: 3009352432816924106}
-  - component: {fileID: 2492974550911885554}
   - component: {fileID: 4852395543856939711}
   - component: {fileID: 7673070852668301221}
   - component: {fileID: 6467166155679354359}
@@ -2582,7 +2581,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: 33041ebf8b6725548a13627fe8c26955, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.03529412}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2592,45 +2591,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2492974550911885554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9074643153883374729}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea27ed67cf172c44e937bdb456ce7308, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: BasicTower
-  range: 3
-  damage: 2
-  attackSpeed: 0.01
-  cost: 100
-  costUpgrade: 50
-  level: 1
-  possibleLevel: 0
-  RangeCircle: {fileID: 7799849709160927737}
-  towerMenu: {fileID: 2286341355817653855}
-  towerName: {fileID: 5112891400796168864}
-  levelText: {fileID: 4917035773055296085}
-  costText: {fileID: 4242518091440394176}
-  statsLabelDamage: {fileID: 4107708029052233851}
-  statsLabelRange: {fileID: 1451648909232252122}
-  statsLabelAttackSpeed: {fileID: 2308094343120764496}
-  upgradeLabelDamage: {fileID: 7724133783580386008}
-  upgradeLabelRange: {fileID: 855410746906954543}
-  upgradeLabelAttackSpeed: {fileID: 4257712623966779069}
-  CircleCollider2D: {fileID: 7673070852668301221}
-  moneyManager: {fileID: 0}
-  uiText: {fileID: 0}
-  currentTarget: {fileID: 0}
-  enemiesInRange: []
-  pivot: {fileID: 3824323263282682496}
-  barrel: {fileID: 7912192239739698460}
-  bullet: {fileID: 5505020069641444755, guid: ba1ed767f622a564e87309071fbf777c, type: 3}
 --- !u!114 &4852395543856939711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2645,7 +2605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pivot: {fileID: 3824323263282682496}
   barrel: {fileID: 7912192239739698460}
-  tower: {fileID: 2492974550911885554}
+  tower: {fileID: 0}
 --- !u!58 &7673070852668301221
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2692,7 +2652,7 @@ MonoBehaviour:
   range: 3
   damage: 2
   attackSpeed: 0.01
-  cost: 100
+  cost: 200
   costUpgrade: 50
   level: 1
   possibleLevel: 0

@@ -82,8 +82,10 @@ public class Tower : MonoBehaviour
         if (enemiesInRange.Count > 0) {
             GameObject max = enemiesInRange[0];
             foreach (GameObject enemy in enemiesInRange) {
-                if (enemy.GetComponent<Enemy>().targetTile.GetComponent<Tile>().fromStart > max.GetComponent<Enemy>().targetTile.GetComponent<Tile>().fromStart){
-                    max = enemy;
+                if (enemy != null) {
+                    if (enemy.GetComponent<Enemy>().targetTile.GetComponent<Tile>().fromStart > max.GetComponent<Enemy>().targetTile.GetComponent<Tile>().fromStart){
+                        max = enemy;
+                    }
                 }
             }
             if (enemiesInRange[0] == null) {
