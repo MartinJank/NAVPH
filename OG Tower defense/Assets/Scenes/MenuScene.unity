@@ -687,6 +687,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 3
   towerCoins: 10
+  basicTowerMaxLevel: 1
+  mediumTowerMaxLevel: 1
+  fastTowerMaxLevel: 1
 --- !u!4 &707802540
 Transform:
   m_ObjectHideFlags: 0

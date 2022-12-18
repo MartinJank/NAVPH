@@ -9,6 +9,7 @@ public class UpgradePossibleLevel : MonoBehaviour
     [SerializeField] private int cost;
     public GameObject towerPrefab;
 
+    [SerializeField] private TextMeshProUGUI towerCoins;
     [SerializeField] private TextMeshProUGUI towerName;
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI costText;
@@ -28,13 +29,28 @@ public class UpgradePossibleLevel : MonoBehaviour
     string showTowerAttackSpeed;
     void Start()
     {
+        towerCoins.text = "" + LevelCounter.control.towerCoins + " towercoins";
 
         // LevelCounter.control.towerCoins -= cost;
         Tower tower = towerPrefab.GetComponent<Tower>();
         // tower.possibleLevel++;
 
         showTowerName = "" + tower.name;
-        showTowerLevel = "" + tower.possibleLevel;
+
+
+
+        if (tower.name == "BasicTower")
+        {
+            showTowerLevel = "" + LevelCounter.control.basicTowerMaxLevel;
+        }
+        else if (tower.name == "MediumTower")
+        {
+            showTowerLevel = "" + LevelCounter.control.mediumTowerMaxLevel;
+        }
+        else if (tower.name == "FastTower")
+        {
+            showTowerLevel = "" + LevelCounter.control.fastTowerMaxLevel;
+        }
         showTowerCost = "" + tower.costUpgrade;
 
         showTowerDamage = "" + tower.damage.ToString("0.00");
@@ -47,11 +63,21 @@ public class UpgradePossibleLevel : MonoBehaviour
 
         towerName.text = showTowerName;
         levelText.text = showTowerLevel;
-        costText.text = showTowerCost;
+        costText.text = "" + cost;
 
-        statsLabelDamage.text = showTowerDamage;
-        statsLabelRange.text = showTowerRange;
-        statsLabelAttackSpeed.text = showTowerAttackSpeed;
+        int iter;
+        int.TryParse(levelText.text, out iter);
+        Debug.Log("heeeh  " + iter);
+
+        // statsLabelDamage.text = showTowerDamage;
+        // statsLabelRange.text = showTowerRange;
+        // statsLabelAttackSpeed.text = showTowerAttackSpeed;
+
+        for (int i = 1; i < iter; i++)
+        {
+            updateMaxLevel();
+        }
+
     }
 
     public void upgrade()
@@ -59,12 +85,28 @@ public class UpgradePossibleLevel : MonoBehaviour
 
         LevelCounter.control.towerCoins -= cost;
         Tower tower = towerPrefab.GetComponent<Tower>();
-        tower.possibleLevel++;
-        
+        // tower.possibleLevel++;
+
+        if (tower.name == "BasicTower")
+        {
+            showTowerLevel = "" + ++LevelCounter.control.basicTowerMaxLevel;
+            // LevelCounter.control.basicTowerMaxLevel++;
+        }
+        else if (tower.name == "MediumTower")
+        {
+            showTowerLevel = "" + ++LevelCounter.control.mediumTowerMaxLevel;
+            // LevelCounter.control.mediumTowerMaxLevel++;
+        }
+        else if (tower.name == "FastTower")
+        {
+            showTowerLevel = "" + ++LevelCounter.control.fastTowerMaxLevel;
+            // LevelCounter.control.fastTowerMaxLevel++;
+        }
+
         updateMaxLevel();
 
         towerName.text = tower.GetComponent<Tower>().name;
-        levelText.text = "" + tower.GetComponent<Tower>().possibleLevel;
+        levelText.text = "" + showTowerLevel;
         costText.text = "" + cost;
 
         upgradeLabelDamage.text = "+ 10%";
