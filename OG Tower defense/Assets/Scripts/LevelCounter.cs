@@ -9,6 +9,9 @@ public class LevelCounter : MonoBehaviour
 
     public int level;
     public int towerCoins;
+    public int basicTowerMaxLevel;
+    public int mediumTowerMaxLevel;
+    public int fastTowerMaxLevel;
 
     private void Awake()
     {

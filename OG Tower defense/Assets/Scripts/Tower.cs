@@ -15,7 +15,7 @@ public class Tower : MonoBehaviour
     [SerializeField] private int cost;
     [SerializeField] public int costUpgrade;
     [SerializeField] public int level;
-    [SerializeField] public int possibleLevel;
+    public int possibleLevel;
     [SerializeField] private Transform RangeCircle;
     [SerializeField] private GameObject towerMenu;
 
@@ -136,6 +136,18 @@ public class Tower : MonoBehaviour
 
     public void updateTower() {
         if (moneyManager.currentPlayerMoney >= costUpgrade) {
+            if (name == "BasicTower")
+            {
+                possibleLevel = LevelCounter.control.basicTowerMaxLevel;
+            }
+            else if (name == "MediumTower")
+            {
+                possibleLevel = LevelCounter.control.mediumTowerMaxLevel;
+            }
+            else if (name == "FastTower")
+            {
+                possibleLevel = LevelCounter.control.fastTowerMaxLevel;
+            }
             if (possibleLevel == level) {
                 uiText.isError = true;
                 uiText.errorMessage = "Max Level Reached";

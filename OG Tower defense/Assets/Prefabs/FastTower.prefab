@@ -2604,7 +2604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: FastTower
-  range: 4
+  range: 2
   damage: 5
   attackSpeed: 0.1
   cost: 300

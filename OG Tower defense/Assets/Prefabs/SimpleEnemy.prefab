@@ -99,10 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59df130f9282a0145969a34c7c617f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 150
+  enemyHealth: 200
   movementSpeed: 0.5
   blood: {fileID: 1570927096764274, guid: 643639841fb531e4ba8097fed4eb9ac7, type: 3}
-  deathSound: {fileID: 7084331885709505089, guid: 8e302b67ecc5b0944b70810723fa3921, type: 3}
   targetTile: {fileID: 0}
   moneyManager: {fileID: 0}
   mapGenerator: {fileID: 0}
