@@ -59,8 +59,7 @@ public class UpgradePossibleLevel : MonoBehaviour
 
         LevelCounter.control.towerCoins -= cost;
         Tower tower = towerPrefab.GetComponent<Tower>();
-        tower.possibleLevel += 1;
-        UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(towerPrefab);
+        tower.possibleLevel++;
         
         updateMaxLevel();
 
