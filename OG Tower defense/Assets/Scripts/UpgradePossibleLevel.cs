@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using TMPro;
 
 public class UpgradePossibleLevel : MonoBehaviour
@@ -58,12 +59,13 @@ public class UpgradePossibleLevel : MonoBehaviour
 
         LevelCounter.control.towerCoins -= cost;
         Tower tower = towerPrefab.GetComponent<Tower>();
-        tower.possibleLevel++;
+        tower.possibleLevel += 1;
+        UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(towerPrefab);
         
         updateMaxLevel();
 
-        towerName.text = showTowerName;
-        levelText.text = "" + tower.possibleLevel;
+        towerName.text = tower.GetComponent<Tower>().name;
+        levelText.text = "" + tower.GetComponent<Tower>().possibleLevel;
         costText.text = "" + cost;
 
         upgradeLabelDamage.text = "+ 10%";

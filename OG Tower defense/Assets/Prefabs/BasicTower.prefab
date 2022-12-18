@@ -2610,6 +2610,7 @@ MonoBehaviour:
   cost: 100
   costUpgrade: 50
   level: 1
+  possibleLevel: 1
   RangeCircle: {fileID: 7799849709160927737}
   towerMenu: {fileID: 2286341355817653855}
   towerName: {fileID: 5112891400796168864}
@@ -2623,6 +2624,7 @@ MonoBehaviour:
   upgradeLabelAttackSpeed: {fileID: 4257712623966779069}
   CircleCollider2D: {fileID: 7673070852668301221}
   moneyManager: {fileID: 0}
+  uiText: {fileID: 0}
   currentTarget: {fileID: 0}
   pivot: {fileID: 3824323263282682496}
   barrel: {fileID: 7912192239739698460}
