@@ -2608,7 +2608,7 @@ MonoBehaviour:
   damage: 10
   attackSpeed: 1
   cost: 100
-  costUpgrade: 50
+  costUpgrade: 25
   level: 1
   possibleLevel: 0
   RangeCircle: {fileID: 7799849709160927737}

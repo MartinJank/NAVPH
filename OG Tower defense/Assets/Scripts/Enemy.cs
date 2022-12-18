@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private float enemyHealth; 
     [SerializeField] public float movementSpeed; 
     [SerializeField] public GameObject blood; 
-    private int killReward = 25; // The amount of money the player gets when this enemy is killed 
+    private int killReward = 15; // The amount of money the player gets when this enemy is killed 
     private int damage = 1; // The amount of damage the enemy does when it reaches the end 
     public GameObject targetTile; 
     private GameObject term;

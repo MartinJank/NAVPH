@@ -2605,10 +2605,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: FastTower
   range: 2
-  damage: 5
+  damage: 7.5
   attackSpeed: 0.1
   cost: 300
-  costUpgrade: 50
+  costUpgrade: 75
   level: 1
   possibleLevel: 0
   RangeCircle: {fileID: 7799849709160927737}

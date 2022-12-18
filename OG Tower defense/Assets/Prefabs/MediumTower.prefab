@@ -2605,10 +2605,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: MediumTower
   range: 2.5
-  damage: 33
+  damage: 20
   attackSpeed: 0.5
   cost: 200
-  costUpgrade: 100
+  costUpgrade: 50
   level: 1
   possibleLevel: 0
   RangeCircle: {fileID: 3461556238122661634}
