@@ -40,7 +40,6 @@ public class PlaceRange : MonoBehaviour
                 GameObject newTowerObject = Instantiate(currentTowerPlacing);
                 newTowerObject.layer = LayerMask.NameToLayer("Tower");
                 newTowerObject.transform.position = hoverTile.transform.position;
-                newTowerObject.GetComponent<Tower>().HideRange();
                 hoverTile.towerOccupied = newTowerObject;
                 shopManager.BuyTower(currentTowerPlacing);
                 endBuilding();
