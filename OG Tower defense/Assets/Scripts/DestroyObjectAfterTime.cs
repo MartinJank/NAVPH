@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class DestroyObjectAfterTime : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float lifespan;
+    [SerializeField] private GameObject rangeDamage;
 
-    // Update is called once per frame
     void Update()
     {
-        Destroy(gameObject, 2f);
-        
+        Destroy(gameObject, lifespan);
     }
+    // void Start()
+    // {
+    //     StartCoroutine(waiter());
+    // }
+
+    // IEnumerator waiter()
+    // {
+    //     //Wait for 4 seconds
+    //     yield return new WaitForSeconds(lifespan);
+    //     rangeDamage.SetActive(false);
+
+    // }
 }

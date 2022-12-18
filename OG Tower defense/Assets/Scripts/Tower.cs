@@ -38,7 +38,7 @@ public class Tower : MonoBehaviour
     public UIText uiText;
 
     public GameObject currentTarget = null;
-    private List<GameObject> enemiesInRange = new List<GameObject>();
+    public List<GameObject> enemiesInRange = new List<GameObject>();
 
     private float nextTimeShoot;
     
