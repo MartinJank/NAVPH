@@ -302,7 +302,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: b63312b9b622b694f973d81c8d115543, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2270,7 +2270,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 01a26d3e7fc16004ba8938d986ed356a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6734,7 +6734,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 4d25c2570292b6041aa61eff6c624cee, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11217,6 +11217,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 3
   towerCoins: 0
+  basicTowerMaxLevel: 0
+  mediumTowerMaxLevel: 0
+  fastTowerMaxLevel: 0
 --- !u!1 &1507012563
 GameObject:
   m_ObjectHideFlags: 0

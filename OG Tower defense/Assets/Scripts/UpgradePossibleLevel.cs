@@ -83,35 +83,40 @@ public class UpgradePossibleLevel : MonoBehaviour
     public void upgrade()
     {
 
-        LevelCounter.control.towerCoins -= cost;
-        Tower tower = towerPrefab.GetComponent<Tower>();
-        // tower.possibleLevel++;
-
-        if (tower.name == "BasicTower")
+        if (LevelCounter.control.towerCoins - cost >= 0)
         {
-            showTowerLevel = "" + ++LevelCounter.control.basicTowerMaxLevel;
-            // LevelCounter.control.basicTowerMaxLevel++;
-        }
-        else if (tower.name == "MediumTower")
-        {
-            showTowerLevel = "" + ++LevelCounter.control.mediumTowerMaxLevel;
-            // LevelCounter.control.mediumTowerMaxLevel++;
-        }
-        else if (tower.name == "FastTower")
-        {
-            showTowerLevel = "" + ++LevelCounter.control.fastTowerMaxLevel;
-            // LevelCounter.control.fastTowerMaxLevel++;
-        }
+            LevelCounter.control.towerCoins -= cost;
+            Tower tower = towerPrefab.GetComponent<Tower>();
+            // tower.possibleLevel++;
 
-        updateMaxLevel();
+            if (tower.name == "BasicTower")
+            {
+                showTowerLevel = "" + ++LevelCounter.control.basicTowerMaxLevel;
+                // LevelCounter.control.basicTowerMaxLevel++;
+            }
+            else if (tower.name == "MediumTower")
+            {
+                showTowerLevel = "" + ++LevelCounter.control.mediumTowerMaxLevel;
+                // LevelCounter.control.mediumTowerMaxLevel++;
+            }
+            else if (tower.name == "FastTower")
+            {
+                showTowerLevel = "" + ++LevelCounter.control.fastTowerMaxLevel;
+                // LevelCounter.control.fastTowerMaxLevel++;
+            }
 
-        towerName.text = tower.GetComponent<Tower>().name;
-        levelText.text = "" + showTowerLevel;
-        costText.text = "" + cost;
+            updateMaxLevel();
 
-        upgradeLabelDamage.text = "+ 10%";
-        upgradeLabelRange.text = "+ 5%";
-        upgradeLabelAttackSpeed.text = "- 3%";
+            towerName.text = tower.GetComponent<Tower>().name;
+            levelText.text = "" + showTowerLevel;
+            costText.text = "" + cost;
+
+            upgradeLabelDamage.text = "+ 10%";
+            upgradeLabelRange.text = "+ 5%";
+            upgradeLabelAttackSpeed.text = "- 3%";
+
+            towerCoins.text = "" + LevelCounter.control.towerCoins + " towercoins";
+        }
     }
 
     private void updateMaxLevel()
